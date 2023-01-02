@@ -1,4 +1,75 @@
-p{
-    background-color: black;
-    color: white;
+form{
+    width: 100%;
+    text-align: center;
 }
+textarea{
+    padding: 10px;
+}
+
+.parent{
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    position: relative;
+}
+.parent ul{
+    list-style: none;
+    overflow-y: scroll;
+    height: 480px;
+    position: sticky;
+    top: 20px;
+}
+.parent ul li{
+    border-bottom: 1px solid red;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.parent ul li:hover{
+    background-color: aqua;
+
+}
+.parent ul li div:nth-child(1){
+    width: 40%;
+}
+.parent ul li div:nth-child(2){
+    width: 20%;
+    text-align: center;
+}
+.parent ul li div:nth-child(3){
+    width: 30%;
+    text-align: center;
+}
+.parent ul li div:nth-child(4){
+    width: 10%;
+    text-align: center;
+}
+
+.parent h2{
+    text-align: center;
+    pad: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.parent a{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    background-color:red;
+    padding: 10px 15px;
+    font-size: 12px;
+
+
+}
+
+.chat-left-bottom{
+    position: absolute;
+    right: 0;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+

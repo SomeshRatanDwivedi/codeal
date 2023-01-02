@@ -1,0 +1,61 @@
+.chat-parent{
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    border-radius: 5px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+.chat{
+    width: 100%;
+    height: 90%;
+}
+.sent-box{
+    width: 100%;
+}
+
+input:nth-child(1){
+    width: 70%;
+    outline: none;
+}
+input:nth-child(2){
+    width: 20%;
+    outline: none;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+ul{
+    list-style: none;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+span:hover{
+    background-color: black;
+    color: white;
+}
+.recieved{
+    text-align: left;
+    background-color: azure;
+   
+}
+.sent{
+    text-align: right;
+    background-color: rgb(123, 232, 232);
+}
+
+.recieved span{
+    display: block;
+        border-bottom: 1px solid black;
+}
+.sent span{
+    display: block;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}

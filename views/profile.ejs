@@ -1,1 +1,21 @@
 <p>profile</p>
+<img src="<%=user.avtar%>" alt="<%=user.name%>" width="100">
+<% if(locals.user.id==profile.id){%>
+    <form action="/users/update/<%=profile._id%>" enctype="multipart/form-data" method="post">
+        <input type="text" placeholder="Your name" name="name">
+        <input type="email" placeholder="Your email" name="email">
+        <input type="file" name="avtar" placeholder="profile picture">
+        <input type="submit" value="Update">
+    </form>
+    
+    
+<%}else{%>
+    <%=profile.name%>
+    <p>username:<%=profile.name%></p>
+    <p>username:<%=profile.email%></p>
+
+
+
+<%}%>
+
+<form action="/users/update"></form>

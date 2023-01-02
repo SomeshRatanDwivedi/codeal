@@ -1,2 +1,77 @@
 <link rel="stylesheet" href="/css/home.css">
-<p>home</p>
+
+<% if(locals.user){%>
+    <form action="/post/create" method="post">
+        <textarea name="content" cols="50" rows="5" placeholder="Type here..."></textarea>
+        <br>
+        <input type="submit" value="post">
+    </form>
+
+    <div class="parent">
+        <h2>Posts</h2>
+        <ul>
+            <%for(let post of posts){%>
+                <li>
+                    <div>
+                        <%=post.content%>
+                            <% if(locals.user && locals.user.id==post.user.id){%>
+                                <a href="post/delete/<%=post._id%>">delete</a>
+
+                                <%}%>
+                                <a href="/likes/toggle/<%=post._id%>/Post"><%=post.like.length%> <span>Like</span></a>
+                    </div>
+                    <div>
+                        <form action="/comment/create/?id=<%=post._id%>" method="post">
+                            <input name="content" placeholder="comment">
+                            <input type="submit" value="post">
+
+                        </form>
+                    </div>
+                    <div>
+                        <%for(let comment of post.comment){%>
+                            <section>
+                                <section>
+                                    <%=comment.content%>
+                                    <a href="/likes/toggle/<%=comment._id%>/Comment"><%=comment.like.length%> <span>Like</span></a></a>
+                                </section>
+                                <section>
+                                    <%=comment.user.name%>
+                                </section>
+
+                            </section>
+                            <% if(locals.user && locals.user.id==post.user.id){%>
+                                <a href="comment/delete/<%=comment._id%>">delete</a>
+
+                                <%}%>
+
+
+                            <%}%>
+                    </div>
+                    <div>
+                        username: <%=post.user.name%>
+                    </div>
+
+
+                </li>
+
+
+                <%}%>
+        </ul>
+      
+    </div>
+    <div class="chat-left-bottom">
+
+        <%-include('chat');%>
+    </div>
+    <%}%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="/js/chat_engine.js"></script>
+
+  <%if(locals.user){%>
+    <script>
+        new ChatEngine('chat-engine', '<%=user.email%>');
+
+    </script>
+    
+    
+    <%}%>
